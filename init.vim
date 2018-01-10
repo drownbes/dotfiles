@@ -1,80 +1,56 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  " Required:
-  set runtimepath+=$HOME/.config/nvim/bundle/neobundle.vim/
-endif
-
 " Required:
-call neobundle#begin(expand('$HOME/.config/nvim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
+call plug#begin('~/.config/nvim/bundle')
 " Add or remove your Bundles here:
 if !exists("g:gui_oni")
-  NeoBundle 'bling/vim-airline'
-  NeoBundle 'vim-airline/vim-airline-themes'
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 endif
 
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/vimproc.vim', {
-    \ 'build' : {
-    \     'windows' : 'make -f make_mingw32.mak',
-    \     'cygwin' : 'make -f make_cygwin.mak',
-    \     'mac' : 'make -f make_mac.mak',
-    \     'unix' : 'make -f make_unix.mak',
-    \    },
-    \ }
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'mhartington/nvim-typescript'
-NeoBundle 'brooth/far.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'terryma/vim-smooth-scroll'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'gavocanov/vim-js-indent'
-NeoBundle 'michalliu/jsruntime.vim'
-NeoBundle 'michalliu/jsoncodecs.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'mklabs/vim-backbone'
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'dahu/vimple'
-NeoBundle 'junegunn/limelight.vim'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'KabbAmine/gulp-vim'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'Shougo/deoplete.nvim'
-NeoBundle 'cazador481/fakeclip.neovim'
-NeoBundle 'chriskempson/base16-vim'
-NeoBundle 'mtth/scratch.vim'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'bfredl/nvim-miniyank'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'kassio/neoterm'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'roxma/vim-tmux-clipboard'
-NeoBundle 'vim-scripts/paredit.vim'
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'neovim/node-host'
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'racer-rust/vim-racer'
-NeoBundle 'jparise/vim-graphql'
-NeoBundle 'let-def/ocp-indent-vim'
-NeoBundle 'machakann/vim-highlightedyank'
-"NeoBundle 'w0rp/ale'
-"NeoBundleLazy 'flowtype/vim-flow', {
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/vim-plug'
+Plug 'mhartington/nvim-typescript'
+Plug 'brooth/far.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'Shougo/unite.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/emmet-vim'
+Plug 'gavocanov/vim-js-indent'
+Plug 'michalliu/jsruntime.vim'
+Plug 'michalliu/jsoncodecs.vim'
+Plug 'embear/vim-localvimrc'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jpalardy/vim-slime'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/MatchTagAlways'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'terryma/vim-expand-region'
+Plug 'Shougo/deoplete.nvim'
+Plug 'cazador481/fakeclip.neovim'
+Plug 'chriskempson/base16-vim'
+Plug 'mtth/scratch.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'bfredl/nvim-miniyank'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'kassio/neoterm'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-scripts/paredit.vim'
+Plug 'tpope/vim-fireplace'
+Plug 'mhinz/vim-startify'
+Plug 'racer-rust/vim-racer'
+Plug 'jparise/vim-graphql'
+Plug 'let-def/ocp-indent-vim'
+Plug 'machakann/vim-highlightedyank'
+"Plug 'w0rp/ale'
+"PlugLazy 'flowtype/vim-flow', {
 "    \ 'autoload': {
 "    \     'filetypes': 'javascript'
 "    \ },
@@ -82,24 +58,20 @@ NeoBundle 'machakann/vim-highlightedyank'
 "    \     'mac': 'npm install -g flow-bin',
 "    \     'unix': 'npm install -g flow-bin'
 "    \ }}
-NeoBundle 'autozimu/LanguageClient-neovim', 'next', {
-    \ 'build': {
-    \   'mac': './install.sh'
-    \ }}
-NeoBundle 'janko-m/vim-test'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'janko-m/vim-test'
+call plug#end()
 
 
 
-
-" Required:
-call neobundle#end()
 
 " Required:
 filetype plugin indent on
 
 let g:deoplete#enable_at_startup = 1
-NeoBundleCheck
-
 
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni#input_patterns = {}
