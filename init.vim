@@ -42,13 +42,14 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kassio/neoterm'
 Plug 'rust-lang/rust.vim'
-Plug 'vim-scripts/paredit.vim'
+Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme'] }
 Plug 'tpope/vim-fireplace'
 Plug 'mhinz/vim-startify'
 Plug 'racer-rust/vim-racer'
 Plug 'jparise/vim-graphql'
 Plug 'let-def/ocp-indent-vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'airblade/vim-gitgutter'
 "Plug 'w0rp/ale'
 "PlugLazy 'flowtype/vim-flow', {
 "    \ 'autoload': {
