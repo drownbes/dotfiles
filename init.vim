@@ -32,7 +32,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'terryma/vim-expand-region'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cazador481/fakeclip.neovim'
 Plug 'chriskempson/base16-vim'
 Plug 'mtth/scratch.vim'
@@ -40,7 +40,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bfredl/nvim-miniyank'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'kassio/neoterm'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme'] }
 Plug 'tpope/vim-fireplace'
@@ -50,6 +49,8 @@ Plug 'jparise/vim-graphql'
 Plug 'let-def/ocp-indent-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
+Plug 'styled-components/vim-styled-components'
+"Plug 'mhartington/nvim-typescript'
 "Plug 'w0rp/ale'
 "PlugLazy 'flowtype/vim-flow', {
 "    \ 'autoload': {
@@ -64,6 +65,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'janko-m/vim-test'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'parsonsmatt/intero-neovim'
 call plug#end()
 
 
@@ -77,9 +81,11 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.ocaml = '[^. *\t]\.\w*|\s\w*|#'
+
 let g:nvim_typescript#default_mappings = 1
 let g:nvim_typescript#signature_complete = 1
 let g:nvim_typescript#type_info_on_hold = 1
+
 let vimple_init_vn = 0
 ""##########-vim-ultisnippets-##########
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -342,7 +348,10 @@ let g:vim_fakeclip_tmux_plus=1
 
 
 let g:LanguageClient_serverCommands = {
-\ 'javascript': ['flow-language-server', '--stdio'],
+  \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['javascript-typescript-stdio'],
+  \ 'typescript': ['javascript-typescript-stdio'],
 \ }
 
 " (Optionally) automatically start language servers.

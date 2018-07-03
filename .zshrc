@@ -61,11 +61,14 @@ source $ZSH/oh-my-zsh.sh
 export PATH=~/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Projects/tmp/bin/:$PATH"
-#export PATH="$HOME/.nvm/:$PATH"
-#export NVM_DIR="$HOME/.nvm"
-#. "/usr/local/opt/nvm/nvm.sh"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.nvm/:$PATH"
+export PATH=$PATH:/Users/artemmarkov/Projects/depot_tools/
 
-EDITOR=vim
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
 . /Users/artemmarkov/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 
@@ -94,5 +97,12 @@ EDITOR=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+. /usr/local/opt/fzf/shell/key-bindings.zsh
 alias vim="nvim --cmd 'set termguicolors|hi normal guifg=#ff0000'"
+EDITOR=nvim
 #nvm alias default node
+export PATH="/usr/local/opt/libpq/bin:$PATH"
