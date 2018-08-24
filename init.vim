@@ -6,9 +6,9 @@ if !exists("g:gui_oni")
   Plug 'vim-airline/vim-airline-themes'
 endif
 
+
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-plug'
-Plug 'mhartington/nvim-typescript'
 Plug 'brooth/far.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'terryma/vim-smooth-scroll'
@@ -32,7 +32,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'terryma/vim-expand-region'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cazador481/fakeclip.neovim'
 Plug 'chriskempson/base16-vim'
 Plug 'mtth/scratch.vim'
@@ -50,16 +49,6 @@ Plug 'let-def/ocp-indent-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'styled-components/vim-styled-components'
-"Plug 'mhartington/nvim-typescript'
-"Plug 'w0rp/ale'
-"PlugLazy 'flowtype/vim-flow', {
-"    \ 'autoload': {
-"    \     'filetypes': 'javascript'
-"    \ },
-"    \ 'build': {
-"    \     'mac': 'npm install -g flow-bin',
-"    \     'unix': 'npm install -g flow-bin'
-"    \ }}
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -68,6 +57,25 @@ Plug 'janko-m/vim-test'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'parsonsmatt/intero-neovim'
+
+
+" assuming your using vim-plug: https://github.com/junegunn/vim-plug
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'wellle/tmux-complete.vim'
+
 call plug#end()
 
 
@@ -186,13 +194,13 @@ set wildmode=list:longest,full
 
 
 ""##########-CONDOM-##########
-set undodir=~/.nvim/tmp/undo/     " undo files
+set undodir=~/.config/nvim/undo/     " undo files
 set undofile
 set undolevels=3000
 set undoreload=10000
 ""set viminfo=                                                  " disabling cmd history between sessions
-set backupdir=~/.nvim/tmp/backup/ " backups
-set directory=~/.nvim/tmp/swap/  " swap files
+set backupdir=~/.config/nvim/backup/ " backups
+set directory=~/.config/nvim/swap/  " swap files
 set backupcopy=yes
 set backup
 set noswapfile
@@ -352,6 +360,7 @@ let g:LanguageClient_serverCommands = {
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'javascript.jsx': ['javascript-typescript-stdio'],
   \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'typescript.tsx': ['javascript-typescript-stdio'],
 \ }
 
 " (Optionally) automatically start language servers.
